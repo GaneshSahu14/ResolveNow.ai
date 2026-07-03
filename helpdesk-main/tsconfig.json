@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "types": ["node"],
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "core/*": ["./core/*"]
+    }
+  },
+  "include": ["e2e/**/*.ts", "playwright.config.ts"]
+}

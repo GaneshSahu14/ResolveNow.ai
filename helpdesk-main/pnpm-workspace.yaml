@@ -1,0 +1,11 @@
+packages:
+  - "client"
+  - "server"
+  - "core"
+allowBuilds:
+  '@prisma/engines': true
+  '@sentry/cli': true
+  esbuild: true
+  msw: true
+  nodemailer: true
+  prisma: true

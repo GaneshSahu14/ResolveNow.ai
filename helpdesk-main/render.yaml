@@ -1,0 +1,49 @@
+# Render Blueprint – Infrastructure as Code
+# https://docs.render.com/infrastructure-as-code
+#
+# Deploy: Connect this repo to Render and it will auto-detect this file.
+# All environment variables below marked "sync: false" must be set manually
+# in the Render dashboard (they contain secrets).
+
+services:
+  - type: web
+    name: resolvenow-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    repo: https://github.com/YOUR_USERNAME/helpdesk-main  # ← update this
+    branch: main
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false                # Set in Render dashboard
+      - key: BETTER_AUTH_SECRET
+        generateValue: true        # Render auto-generates a random value
+      - key: BETTER_AUTH_URL
+        sync: false                # Set to https://resolvenow-ai.onrender.com
+      - key: TRUSTED_ORIGINS
+        sync: false                # Set to https://resolvenow-ai.onrender.com
+      - key: WEBHOOK_SECRET
+        generateValue: true        # Render auto-generates a random value
+      - key: GROQ_API_KEY
+        sync: false                # Set in Render dashboard
+      - key: GROQ_MODEL
+        value: llama-3.1-8b-instant
+      - key: RESEND_API_KEY
+        sync: false                # Set in Render dashboard
+      - key: RESEND_FROM_EMAIL
+        sync: false                # Set in Render dashboard
+      - key: CLOUDINARY_URL
+        sync: false                # Set in Render dashboard
+      - key: SEED_ADMIN_EMAIL
+        sync: false                # Set in Render dashboard
+      - key: SEED_ADMIN_PASSWORD
+        sync: false                # Set in Render dashboard
+      - key: SENTRY_DSN
+        sync: false                # Optional – set in Render dashboard
+      - key: SENTRY_ENVIRONMENT
+        value: production

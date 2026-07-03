@@ -1,0 +1,787 @@
+$ bun --watch src/index.ts
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\role.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ai-agent.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\replies.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\users.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\tickets.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-category.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-status.ts is not in the project directory and will not be watched
+Warning: WEBHOOK_SECRET is not set. Webhook endpoints will return 500.
+Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you warn: File D:\helpdesk-main\helpdesk-main\core\schemas\users.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\role.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ai-agent.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\tickets.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\replies.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-status.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-category.ts is not in the project directory and will not be watched
+Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+      at deprecatedSslModeWarning (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:216:13)
+      at parse (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:143:11)
+      at new ConnectionParameters (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection-parameters.js:60:42)
+      at new Client (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:54:33)
+      at newClient (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:241:20)
+      at connect (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:235:10)
+      at query (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:449:10)
+      at executeSql (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\db.js:43:32)
+      at isInstalled (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:29:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dWarning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you warn: File D:\helpdesk-main\helpdesk-main\core\constants\role.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\replies.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\tickets.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ai-agent.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\users.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-category.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-status.ts is not in the project directory and will not be watched
+Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+      at deprecatedSslModeWarning (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:216:13)
+      at parse (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:143:11)
+      at new ConnectionParameters (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection-parameters.js:60:42)
+      at new Client (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:54:33)
+      at newClient (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:241:20)
+      at connect (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:235:10)
+      at query (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:449:10)
+      at executeSql (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\db.js:43:32)
+      at isInstalled (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:29:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:33:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\index.js:83:40)
+      at async startQueue (D:\helpdesk-main\helpdesk-main\server\src\lib\queue.ts:19:14)
+      at async boot (D:\helpdesk-main\helpdesk-main\server\src\index.ts:86:9)
+
+2026-06-15T04:51:43.671Z ERROR [Better Auth]: Invalid origin: http://localhost:5174
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\replies.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ai-agent.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\tickets.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\role.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\users.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-category.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-status.ts is not in the project directory and will not be watched
+Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+      at deprecatedSslModeWarning (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:216:13)
+      at parse (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:143:11)
+      at new ConnectionParameters (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection-parameters.js:60:42)
+      at new Client (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:54:33)
+      at newClient (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:241:20)
+      at connect (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:235:10)
+      at query (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:449:10)
+      at executeSql (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\db.js:43:32)
+      at isInstalled (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:29:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:33:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\index.js:83:40)
+      at async startQueue (D:\helpdesk-main\helpdesk-main\server\src\lib\queue.ts:19:14)
+      at async boot (D:\helpdesk-main\helpdesk-main\server\src\index.ts:86:9)
+
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\replies.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ai-agent.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\tickets.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\role.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\users.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-category.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-status.ts is not in the project directory and will not be watched
+Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+      at deprecatedSslModeWarning (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:216:13)
+      at parse (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:143:11)
+      at new ConnectionParameters (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection-parameters.js:60:42)
+      at new Client (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:54:33)
+      at newClient (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:241:20)
+      at connect (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:235:10)
+      at query (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:449:10)
+      at executeSql (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\db.js:43:32)
+      at isInstalled (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:29:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:33:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\index.js:83:40)
+      at async startQueue (D:\helpdesk-main\helpdesk-main\server\src\lib\queue.ts:19:14)
+      at async boot (D:\helpdesk-main\helpdesk-main\server\src\index.ts:87:9)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\role.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ai-agent.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\tickets.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\users.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\replies.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-status.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-category.ts is not in the project directory and will not be watched
+Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+      at deprecatedSslModeWarning (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:216:13)
+      at parse (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:143:11)
+      at new ConnectionParameters (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection-parameters.js:60:42)
+      at new Client (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:54:33)
+      at newClient (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:241:20)
+      at connect (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:235:10)
+      at query (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:449:10)
+      at executeSql (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\db.js:43:32)
+      at isInstalled (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:29:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:33:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\index.js:83:40)
+      at async startQueue (D:\helpdesk-main\helpdesk-main\server\src\lib\queue.ts:19:14)
+      at async boot (D:\helpdesk-main\helpdesk-main\server\src\index.ts:87:9)
+
+API key does not start with "SG.".
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\role.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ai-agent.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\tickets.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\replies.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\schemas\users.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-status.ts is not in the project directory and will not be watched
+warn: File D:\helpdesk-main\helpdesk-main\core\constants\ticket-category.ts is not in the project directory and will not be watched
+Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+      at deprecatedSslModeWarning (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:216:13)
+      at parse (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-connection-string@2.13.0\node_modules\pg-connection-string\index.js:143:11)
+      at new ConnectionParameters (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection-parameters.js:60:42)
+      at new Client (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:54:33)
+      at newClient (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:241:20)
+      at connect (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:235:10)
+      at query (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:449:10)
+      at executeSql (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\db.js:43:32)
+      at isInstalled (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:29:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\contractor.js:33:38)
+      at start (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-boss@12.19.1\node_modules\pg-boss\dist\index.js:83:40)
+      at async startQueue (D:\helpdesk-main\helpdesk-main\server\src\lib\queue.ts:19:14)
+      at async boot (D:\helpdesk-main\helpdesk-main\server\src\index.ts:87:9)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+{
+  message: "Connection terminated unexpectedly",
+  stack: "Error: Connection terminated unexpectedly\n    at <anonymous> (D:\\helpdesk-main\\helpdesk-main\\node_modules\\.pnpm\\pg-pool@3.14.0_pg@8.21.0\\node_modules\\pg-pool\\index.js:45:11)\n    at processTicksAndRejections (native:7:39)",
+  __sentry_captured__: true,
+}
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+{
+  message: "Connection terminated due to connection timeout",
+  stack: "Error: Connection terminated due to connection timeout\n    at <anonymous> (D:\\helpdesk-main\\helpdesk-main\\node_modules\\.pnpm\\pg-pool@3.14.0_pg@8.21.0\\node_modules\\pg-pool\\index.js:45:11)\n    at processTicksAndRejections (native:7:39)",
+  __sentry_captured__: true,
+}
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at <anonymous> (node:net:1469:20)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at <anonymous> (node:net:1469:20)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at <anonymous> (node:net:1469:20)
+
+{
+  message: "Connection terminated due to connection timeout",
+  stack: "Error: Connection terminated due to connection timeout\n    at <anonymous> (D:\\helpdesk-main\\helpdesk-main\\node_modules\\.pnpm\\pg-pool@3.14.0_pg@8.21.0\\node_modules\\pg-pool\\index.js:45:11)\n    at processTicksAndRejections (native:7:39)",
+  __sentry_captured__: true,
+}
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+nst error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at <anonymous> (node:net:1469:20)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at <anonymous> (node:net:1469:20)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at <anonymous> (node:net:1469:20)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+
+40 |     res = resolve
+41 |     rej = reject
+42 |   }).catch((err) => {
+43 |     // replace the stack trace that leads to `TCP.onStreamRead` with one that leads back to the
+44 |     // application that created the query
+45 |     Error.captureStackTrace(err)
+               ^
+error: Connection terminated due to connection timeout
+      at D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg-pool@3.14.0_pg@8.21.0\node_modules\pg-pool\index.js:45:11
+      at processTicksAndRejections (native:7:39)
+
+188 |     })
+189 | 
+190 |     this._attachListeners(con)
+191 | 
+192 |     con.once('end', () => {
+193 |       const error = this._ending ? new Error('Connection terminated') : new Error('Connection terminated unexpectedly')
+                                                                                  ^
+error: Connection terminated unexpectedly
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\client.js:193:77)
+      at emit (node:events:92:22)
+      at <anonymous> (D:\helpdesk-main\helpdesk-main\node_modules\.pnpm\pg@8.21.0\node_modules\pg\lib\connection.js:61:12)
+      at emit (node:events:95:22)
+      at emitCloseNT (node:net:8:12)
+

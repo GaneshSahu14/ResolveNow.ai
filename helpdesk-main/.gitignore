@@ -1,0 +1,9 @@
+node_modules
+e2e/test-results/
+e2e/playwright-report/
+
+# Environment variable files (never commit secrets)
+.env
+.env.*
+!.env.example
+!.env.test
