@@ -86,7 +86,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] as const } },
 };
 
 export default function DashboardPage() {
@@ -475,7 +475,7 @@ export default function DashboardPage() {
                       {/* Timeline line */}
                       <div className="absolute left-1.5 top-2 bottom-2 w-px bg-gradient-to-b from-indigo-500/30 via-violet-500/20 to-transparent" />
                       
-                      {stats?.recentActivity.map((activity, idx) => (
+                      {stats?.recentActivity.map((activity) => (
                         <div key={activity.id} className="relative text-[12px] group/activity">
                           {/* Timeline dot */}
                           <span className="absolute -left-[18px] top-1.5 h-2.5 w-2.5 rounded-full bg-indigo-500/30 border border-indigo-500/50 group-hover/activity:bg-indigo-500/60 transition-all" />
