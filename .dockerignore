@@ -1,0 +1,16 @@
+node_modules
+helpdesk-main/node_modules
+.env*
+helpdesk-main/server/.env*
+.git
+helpdesk-main/e2e
+dist
+helpdesk-main/client/dist
+helpdesk-main/server/dist
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+.vscode
+.idea
+.claude
