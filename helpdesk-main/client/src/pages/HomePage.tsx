@@ -25,7 +25,8 @@ import {
   ChevronRight,
   ShieldAlert,
   ArrowRightLeft,
-  Workflow
+  Workflow,
+  Mail
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -1165,6 +1166,62 @@ export default function HomePage() {
                 >
                   Contact Enterprise Sales
                 </a>
+              </div>
+            </div>
+          </section>
+
+          {/* Get In Touch Section */}
+          <section className="py-24 border-t border-slate-900 bg-[#080B14] relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[30%] h-[35%] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-10 right-1/4 w-[25%] h-[30%] bg-cyan-500/5 rounded-full blur-[90px] pointer-events-none" />
+            
+            <div className="max-w-6xl mx-auto px-6 relative z-10">
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Contact Us
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                  Get in Touch
+                </h2>
+                <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
+                  Have doubts or queries? Reach out directly — we're happy to help.
+                </p>
+              </div>
+
+              <div className="flex justify-center">
+                {/* Ganesh Sahu Card */}
+                <div className="group relative w-full max-w-xl rounded-2xl border border-slate-800 bg-slate-950/40 p-8 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-[0_0_40px_-5px_rgba(6,182,212,0.12)] flex flex-col justify-between overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 rounded-bl-full filter blur-xl group-hover:bg-cyan-500/10 transition-colors" />
+                  <div>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 border border-cyan-500/30 flex items-center justify-center font-bold text-white text-lg shadow-inner select-none font-mono">
+                        GS
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white tracking-wide group-hover:text-cyan-400 transition-colors">
+                          Ganesh Sahu
+                        </h3>
+                        <p className="text-xs text-cyan-400/90 font-semibold tracking-wider uppercase mt-0.5">
+                          AI Engineer
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                      Designed and integrated the machine learning models, automated routing flows, and AI agents. Ganesh leads the cognitive engineering workflows that automate ticket resolution.
+                    </p>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-slate-900">
+                    <a
+                      href="mailto:ganeshsahu2147@gmail.com"
+                      className="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-white transition-colors bg-slate-900/60 hover:bg-cyan-600/10 px-4 py-2.5 rounded-lg border border-slate-800 hover:border-cyan-500/30 font-medium"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-cyan-400" />
+                      ganeshsahu2147@gmail.com
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
