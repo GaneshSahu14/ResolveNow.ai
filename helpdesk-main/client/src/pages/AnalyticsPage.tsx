@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Bar,
   BarChart,
@@ -17,6 +17,29 @@ import {
   Area,
 } from "recharts";
 import { PageTransition } from "../components/PageTransition";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+} as const;
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 110,
+      damping: 15,
+    },
+  },
+} as const;
 
 export default function AnalyticsPage() {
   const [activeTab, setActiveTab] = useState<"overview" | "productivity" | "satisfaction">("overview");
@@ -128,397 +151,387 @@ export default function AnalyticsPage() {
           </div>
         </motion.div>
 
-        {/* Tab Panels */}
-        {activeTab === "overview" && (
-          <motion.div
-            key="overview"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-min"
-          >
-            {/* KPI Cards */}
+        {/* Tab Panels with AnimatePresence */}
+        <AnimatePresence mode="wait">
+          {activeTab === "overview" && (
             <motion.div
-              className="md:col-span-4 glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] relative overflow-hidden group"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: 0.03 }}
+              key="overview"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              exit={{ opacity: 0, y: -15, transition: { duration: 0.15 } }}
+              className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-min"
             >
-              <div className="absolute -right-10 -top-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
-              <div className="flex items-center gap-2 text-on-surface-variant mb-4">
-                <span className="material-symbols-outlined text-[20px] text-primary">speed</span>
-                <span className="font-label-md text-[14px]">Avg Resolution Time</span>
-              </div>
-              <div className="flex items-baseline gap-3">
-                <span className="font-display-sm text-[40px] text-on-background font-bold">1.8</span>
-                <span className="font-body-md text-[16px] text-on-surface-variant">hours</span>
-              </div>
-              <div className="mt-2 text-tertiary flex items-center gap-1 font-label-sm text-[12px]">
-                <span className="material-symbols-outlined text-[14px]">trending_down</span>
-                <span>-12% vs last month</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="md:col-span-4 glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] relative overflow-hidden group"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: 0.06 }}
-            >
-              <div className="absolute -right-10 -top-10 w-32 h-32 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors"></div>
-              <div className="flex items-center gap-2 text-on-surface-variant mb-4">
-                <span className="material-symbols-outlined text-[20px] text-secondary">forum</span>
-                <span className="font-label-md text-[14px]">Total Volume</span>
-              </div>
-              <div className="flex items-baseline gap-3">
-                <span className="font-display-sm text-[40px] text-on-background font-bold">8,492</span>
-              </div>
-              <div className="mt-2 text-error flex items-center gap-1 font-label-sm text-[12px]">
-                <span className="material-symbols-outlined text-[14px]">trending_up</span>
-                <span>+5% vs last month</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="md:col-span-4 glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] relative overflow-hidden group ai-processing"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: 0.09 }}
-            >
-              <div className="absolute -right-10 -top-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"></div>
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-2 text-on-surface-variant">
-                  <span className="material-symbols-outlined text-[20px] text-primary">psychology</span>
-                  <span className="font-label-md text-[14px]">AI Deflection Rate</span>
+              {/* KPI Cards */}
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="md:col-span-4 glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] relative overflow-hidden group cursor-default"
+              >
+                <div className="absolute -right-10 -top-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+                <div className="flex items-center gap-2 text-on-surface-variant mb-4">
+                  <span className="material-symbols-outlined text-[20px] text-primary">speed</span>
+                  <span className="font-label-md text-[14px]">Avg Resolution Time</span>
                 </div>
-                <span className="px-2 py-0.5 rounded-full border border-primary/30 text-primary font-label-sm text-[10px] bg-primary/5 tracking-wider">
-                  LIVE
-                </span>
-              </div>
-              <div className="flex items-baseline gap-3">
-                <span className="font-display-sm text-[40px] text-on-background font-bold">64.2%</span>
-              </div>
-              <div className="mt-2 text-tertiary flex items-center gap-1 font-label-sm text-[12px]">
-                <span className="material-symbols-outlined text-[14px]">trending_up</span>
-                <span>+2.4% vs last month</span>
-              </div>
-            </motion.div>
-
-            {/* Main Volume Chart */}
-            <motion.div
-              className="md:col-span-8 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.12 }}
-            >
-              <div className="flex justify-between items-center mb-8 border-b border-outline-variant/10 pb-4">
-                <div>
-                  <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Ticket Volume Trends</h3>
-                  <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Weekly intake traffic comparison</p>
+                <div className="flex items-baseline gap-3">
+                  <span className="font-display-sm text-[40px] text-on-background font-bold">1.8</span>
+                  <span className="font-body-md text-[16px] text-on-surface-variant">hours</span>
                 </div>
-                <button className="text-on-surface-variant hover:text-primary cursor-pointer">
-                  <span className="material-symbols-outlined">more_horiz</span>
-                </button>
-              </div>
+                <div className="mt-2 text-tertiary flex items-center gap-1 font-label-sm text-[12px]">
+                  <span className="material-symbols-outlined text-[14px]">trending_down</span>
+                  <span>-12% vs last month</span>
+                </div>
+              </motion.div>
 
-              <div className="flex-1 w-full min-h-[250px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={volumeData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                    <defs>
-                      <linearGradient id="colorIntake" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="var(--color-primary)" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="var(--color-primary)" stopOpacity={0} />
-                      </linearGradient>
-                      <linearGradient id="colorResolved" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="var(--color-secondary)" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="var(--color-secondary)" stopOpacity={0} />
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
-                    <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} dy={10} />
-                    <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} />
-                    <Tooltip
-                      contentStyle={{
-                        background: "rgba(17, 20, 23, 0.9)",
-                        borderColor: "rgba(255,255,255,0.1)",
-                        borderRadius: "12px",
-                        fontSize: 12,
-                        backdropFilter: "blur(8px)",
-                      }}
-                      itemStyle={{ color: "var(--color-on-surface)" }}
-                    />
-                    <Area
-                      type="monotone"
-                      dataKey="tickets"
-                      name="New Tickets"
-                      stroke="var(--color-primary)"
-                      strokeWidth={3}
-                      fillOpacity={1}
-                      fill="url(#colorIntake)"
-                    />
-                    <Area
-                      type="monotone"
-                      dataKey="resolved"
-                      name="Resolved Tickets"
-                      stroke="var(--color-secondary)"
-                      strokeWidth={3}
-                      fillOpacity={1}
-                      fill="url(#colorResolved)"
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
-              </div>
-            </motion.div>
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="md:col-span-4 glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] relative overflow-hidden group cursor-default"
+              >
+                <div className="absolute -right-10 -top-10 w-32 h-32 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors"></div>
+                <div className="flex items-center gap-2 text-on-surface-variant mb-4">
+                  <span className="material-symbols-outlined text-[20px] text-secondary">forum</span>
+                  <span className="font-label-md text-[14px]">Total Volume</span>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="font-display-sm text-[40px] text-on-background font-bold">8,492</span>
+                </div>
+                <div className="mt-2 text-error flex items-center gap-1 font-label-sm text-[12px]">
+                  <span className="material-symbols-outlined text-[14px]">trending_up</span>
+                  <span>+5% vs last month</span>
+                </div>
+              </motion.div>
 
-            {/* Classification Donut Chart */}
-            <motion.div
-              className="md:col-span-4 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-            >
-              <div className="mb-8 border-b border-outline-variant/10 pb-4">
-                <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Issue Classification</h3>
-                <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Overall tickets split by feature</p>
-              </div>
-              <div className="flex-1 flex flex-col items-center justify-center relative">
-                <div className="w-full h-[220px] relative">
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="md:col-span-4 glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] relative overflow-hidden group ai-processing cursor-default"
+              >
+                <div className="absolute -right-10 -top-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"></div>
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex items-center gap-2 text-on-surface-variant">
+                    <span className="material-symbols-outlined text-[20px] text-primary">psychology</span>
+                    <span className="font-label-md text-[14px]">AI Deflection Rate</span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded-full border border-primary/30 text-primary font-label-sm text-[10px] bg-primary/5 tracking-wider">
+                    LIVE
+                  </span>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="font-display-sm text-[40px] text-on-background font-bold">64.2%</span>
+                </div>
+                <div className="mt-2 text-tertiary flex items-center gap-1 font-label-sm text-[12px]">
+                  <span className="material-symbols-outlined text-[14px]">trending_up</span>
+                  <span>+2.4% vs last month</span>
+                </div>
+              </motion.div>
+
+              {/* Main Volume Chart */}
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                className="md:col-span-8 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
+              >
+                <div className="flex justify-between items-center mb-8 border-b border-outline-variant/10 pb-4">
+                  <div>
+                    <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Ticket Volume Trends</h3>
+                    <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Weekly intake traffic comparison</p>
+                  </div>
+                  <button className="text-on-surface-variant hover:text-primary cursor-pointer">
+                    <span className="material-symbols-outlined">more_horiz</span>
+                  </button>
+                </div>
+
+                <div className="flex-1 w-full min-h-[250px]">
                   <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={categoryShare}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={65}
-                        outerRadius={85}
-                        paddingAngle={5}
-                        dataKey="value"
-                        stroke="none"
-                      >
-                        {categoryShare.map((_entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
+                    <AreaChart data={volumeData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                      <defs>
+                        <linearGradient id="colorIntake" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="var(--color-primary)" stopOpacity={0.3} />
+                          <stop offset="95%" stopColor="var(--color-primary)" stopOpacity={0} />
+                        </linearGradient>
+                        <linearGradient id="colorResolved" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="var(--color-secondary)" stopOpacity={0.3} />
+                          <stop offset="95%" stopColor="var(--color-secondary)" stopOpacity={0} />
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
+                      <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} dy={10} />
+                      <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} />
                       <Tooltip
                         contentStyle={{
                           background: "rgba(17, 20, 23, 0.9)",
                           borderColor: "rgba(255,255,255,0.1)",
                           borderRadius: "12px",
                           fontSize: 12,
+                          backdropFilter: "blur(8px)",
                         }}
                         itemStyle={{ color: "var(--color-on-surface)" }}
                       />
-                    </PieChart>
+                      <Area
+                        type="monotone"
+                        dataKey="tickets"
+                        name="New Tickets"
+                        stroke="var(--color-primary)"
+                        strokeWidth={3}
+                        fillOpacity={1}
+                        fill="url(#colorIntake)"
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="resolved"
+                        name="Resolved Tickets"
+                        stroke="var(--color-secondary)"
+                        strokeWidth={3}
+                        fillOpacity={1}
+                        fill="url(#colorResolved)"
+                      />
+                    </AreaChart>
                   </ResponsiveContainer>
+                </div>
+              </motion.div>
 
-                  {/* Center Text */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-1">
-                    <span className="font-display-sm text-[28px] font-bold text-on-background leading-none">1,335</span>
-                    <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider mt-1">Tickets</span>
+              {/* Classification Donut Chart */}
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                className="md:col-span-4 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
+              >
+                <div className="mb-8 border-b border-outline-variant/10 pb-4">
+                  <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Issue Classification</h3>
+                  <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Overall tickets split by feature</p>
+                </div>
+                <div className="flex-1 flex flex-col items-center justify-center relative">
+                  <div className="w-full h-[220px] relative">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={categoryShare}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={65}
+                          outerRadius={85}
+                          paddingAngle={5}
+                          dataKey="value"
+                          stroke="none"
+                        >
+                          {categoryShare.map((_entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                          ))}
+                        </Pie>
+                        <Tooltip
+                          contentStyle={{
+                            background: "rgba(17, 20, 23, 0.9)",
+                            borderColor: "rgba(255,255,255,0.1)",
+                            borderRadius: "12px",
+                            fontSize: 12,
+                          }}
+                          itemStyle={{ color: "var(--color-on-surface)" }}
+                        />
+                      </PieChart>
+                    </ResponsiveContainer>
+
+                    {/* Center Text */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-1">
+                      <span className="font-display-sm text-[28px] font-bold text-on-background leading-none">1,335</span>
+                      <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider mt-1">Tickets</span>
+                    </div>
+                  </div>
+
+                  {/* Legend */}
+                  <div className="w-full mt-6 space-y-2.5 px-2">
+                    {categoryShare.map((entry, index) => (
+                      <div key={entry.name} className="flex justify-between items-center font-label-md text-[13px]">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
+                          <span className="text-on-surface">{entry.name}</span>
+                        </div>
+                        <span className="text-on-surface-variant font-mono">{entry.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+
+          {activeTab === "productivity" && (
+            <motion.div
+              key="productivity"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              exit={{ opacity: 0, y: -15, transition: { duration: 0.15 } }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6"
+            >
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                className="lg:col-span-7 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
+              >
+                <div className="mb-8 border-b border-outline-variant/10 pb-4">
+                  <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Average Resolution Time (hrs)</h3>
+                  <p className="font-body-md text-[13px] text-on-surface-variant mt-1">SLA response times sorted by category</p>
+                </div>
+                <div className="flex-1 w-full min-h-[250px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={resolutionTimeData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
+                      <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} dy={10} />
+                      <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} />
+                      <Tooltip
+                        cursor={{ fill: "rgba(255,255,255,0.05)" }}
+                        contentStyle={{ background: "rgba(17, 20, 23, 0.9)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "12px", fontSize: 12 }}
+                      />
+                      <Bar dataKey="time" fill="var(--color-primary)" radius={[4, 4, 0, 0]} barSize={40} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </motion.div>
+
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                className="lg:col-span-5 glass-card rounded-xl p-8 flex flex-col"
+              >
+                <div className="mb-6 border-b border-outline-variant/10 pb-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-primary text-[20px]">military_tech</span>
+                  </div>
+                  <div>
+                    <h3 className="font-headline-lg-mobile text-[20px] text-on-background leading-tight">Agent Leaderboard</h3>
+                    <p className="font-body-md text-[13px] text-on-surface-variant">Weekly resolving activity levels</p>
                   </div>
                 </div>
 
-                {/* Legend */}
-                <div className="w-full mt-6 space-y-2.5 px-2">
-                  {categoryShare.map((entry, index) => (
-                    <div key={entry.name} className="flex justify-between items-center font-label-md text-[13px]">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
-                        <span className="text-on-surface">{entry.name}</span>
+                <div className="space-y-4">
+                  {agentLeaderboard.map((agent, i) => (
+                    <motion.div
+                      key={agent.name}
+                      className="flex items-center justify-between p-3 rounded-lg hover:bg-surface-variant/20 transition-colors border border-transparent hover:border-outline-variant/10 cursor-default"
+                      variants={itemVariants}
+                      whileHover={{ x: 4, transition: { duration: 0.15 } }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="font-display-sm text-[16px] text-outline w-4 text-center font-bold">{i + 1}</div>
+                        <div className="h-10 w-10 rounded-full bg-surface-variant border border-outline-variant/30 text-on-surface flex items-center justify-center font-bold text-[14px]">
+                          {agent.name[0]}
+                        </div>
+                        <div>
+                          <p className="font-label-md text-[14px] text-on-surface font-bold">{agent.name}</p>
+                          <p className="font-body-sm text-[11px] text-on-surface-variant mt-0.5">Active support tier</p>
+                        </div>
                       </div>
-                      <span className="text-on-surface-variant font-mono">{entry.value}</span>
-                    </div>
+                      <div className="text-right">
+                        <p className="font-label-md text-[14px] text-on-surface font-bold">{agent.resolved}</p>
+                        <p className="text-tertiary font-label-sm text-[11px] flex items-center justify-end gap-1 mt-0.5">
+                          <span className="material-symbols-outlined text-[12px]" style={{ fontVariationSettings: "'FILL' 1" }}>
+                            star
+                          </span>
+                          {agent.csat}
+                        </p>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          )}
 
-        {activeTab === "productivity" && (
-          <motion.div
-            key="productivity"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-6"
-          >
+          {activeTab === "satisfaction" && (
             <motion.div
-              className="lg:col-span-7 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: 0.02 }}
+              key="satisfaction"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+              exit={{ opacity: 0, y: -15, transition: { duration: 0.15 } }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
             >
-              <div className="mb-8 border-b border-outline-variant/10 pb-4">
-                <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Average Resolution Time (hrs)</h3>
-                <p className="font-body-md text-[13px] text-on-surface-variant mt-1">SLA response times sorted by category</p>
-              </div>
-              <div className="flex-1 w-full min-h-[250px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={resolutionTimeData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
-                    <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} dy={10} />
-                    <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} />
-                    <Tooltip
-                      cursor={{ fill: "rgba(255,255,255,0.05)" }}
-                      contentStyle={{ background: "rgba(17, 20, 23, 0.9)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "12px", fontSize: 12 }}
-                    />
-                    <Bar dataKey="time" fill="var(--color-primary)" radius={[4, 4, 0, 0]} barSize={40} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="lg:col-span-5 glass-card rounded-xl p-8 flex flex-col"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: 0.06 }}
-            >
-              <div className="mb-6 border-b border-outline-variant/10 pb-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary text-[20px]">military_tech</span>
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                className="glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
+              >
+                <div className="mb-8 border-b border-outline-variant/10 pb-4">
+                  <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Customer Satisfaction (CSAT)</h3>
+                  <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Weekly CSAT score trend (Target: 4.5+)</p>
                 </div>
-                <div>
-                  <h3 className="font-headline-lg-mobile text-[20px] text-on-background leading-tight">Agent Leaderboard</h3>
-                  <p className="font-body-md text-[13px] text-on-surface-variant">Weekly resolving activity levels</p>
+                <div className="flex-1 w-full min-h-[250px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={csatData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
+                      <XAxis dataKey="week" tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} dy={10} />
+                      <YAxis tickLine={false} axisLine={false} domain={[3.0, 5.0]} tick={{ fontSize: 11, fill: "var(--color-outline)" }} />
+                      <Tooltip contentStyle={{ background: "rgba(17, 20, 23, 0.9)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "12px", fontSize: 12 }} />
+                      <Line
+                        type="monotone"
+                        dataKey="score"
+                        stroke="var(--color-tertiary)"
+                        strokeWidth={4}
+                        dot={{ r: 6, fill: "var(--color-background)", strokeWidth: 2 }}
+                        activeDot={{ r: 8, fill: "var(--color-tertiary)" }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="space-y-4">
-                {agentLeaderboard.map((agent, i) => (
-                  <motion.div
-                    key={agent.name}
-                    className="flex items-center justify-between p-3 rounded-lg hover:bg-surface-variant/20 transition-colors border border-transparent hover:border-outline-variant/10"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25, delay: 0.08 + i * 0.03 }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="font-display-sm text-[16px] text-outline w-4 text-center font-bold">{i + 1}</div>
-                      <div className="h-10 w-10 rounded-full bg-surface-variant border border-outline-variant/30 text-on-surface flex items-center justify-center font-bold text-[14px]">
-                        {agent.name[0]}
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                className="glass-card rounded-xl p-8 flex flex-col"
+              >
+                <div className="mb-6 border-b border-outline-variant/10 pb-4">
+                  <h3 className="font-headline-lg-mobile text-[24px] text-on-background">SLA Breach Incidents</h3>
+                  <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Incidents failing target response metrics</p>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    {
+                      title: "First Response SLA",
+                      target: "Target limit: 4 hours",
+                      value: "99.1%",
+                      meta: "9 breaches",
+                      metaClass: "text-tertiary",
+                    },
+                    {
+                      title: "Resolution SLA",
+                      target: "Target limit: 24 hours",
+                      value: "97.8%",
+                      meta: "21 breaches",
+                      metaClass: "text-error",
+                    },
+                    {
+                      title: "Escalation Mitigation Time",
+                      target: "Target limit: 1 hour",
+                      value: "100%",
+                      meta: "0 breaches",
+                      metaClass: "text-tertiary",
+                    },
+                  ].map((m) => (
+                    <motion.div
+                      key={m.title}
+                      className="flex items-center justify-between p-5 bg-surface-variant/20 border border-outline-variant/10 rounded-xl transition-colors hover:border-outline-variant/30 cursor-default"
+                      variants={itemVariants}
+                      whileHover={{ x: 4, transition: { duration: 0.15 } }}
+                    >
+                      <div className="space-y-1">
+                        <p className="font-label-md text-[15px] text-on-surface font-bold">{m.title}</p>
+                        <p className="font-body-sm text-[12px] text-on-surface-variant">{m.target}</p>
                       </div>
-                      <div>
-                        <p className="font-label-md text-[14px] text-on-surface font-bold">{agent.name}</p>
-                        <p className="font-body-sm text-[11px] text-on-surface-variant mt-0.5">Active support tier</p>
+                      <div className="text-right">
+                        <p className="font-display-sm text-[20px] text-on-surface font-bold">{m.value}</p>
+                        <p className={`font-label-sm text-[11px] ${m.metaClass}`}>{m.meta}</p>
                       </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-label-md text-[14px] text-on-surface font-bold">{agent.resolved}</p>
-                      <p className="text-tertiary font-label-sm text-[11px] flex items-center justify-end gap-1 mt-0.5">
-                        <span className="material-symbols-outlined text-[12px]" style={{ fontVariationSettings: "'FILL' 1" }}>
-                          star
-                        </span>
-                        {agent.csat}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-
-        {activeTab === "satisfaction" && (
-          <motion.div
-            key="satisfaction"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-          >
-            <motion.div
-              className="glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: 0.02 }}
-            >
-              <div className="mb-8 border-b border-outline-variant/10 pb-4">
-                <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Customer Satisfaction (CSAT)</h3>
-                <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Weekly CSAT score trend (Target: 4.5+)</p>
-              </div>
-              <div className="flex-1 w-full min-h-[250px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={csatData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
-                    <XAxis dataKey="week" tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: "var(--color-outline)" }} dy={10} />
-                    <YAxis tickLine={false} axisLine={false} domain={[3.0, 5.0]} tick={{ fontSize: 11, fill: "var(--color-outline)" }} />
-                    <Tooltip contentStyle={{ background: "rgba(17, 20, 23, 0.9)", borderColor: "rgba(255,255,255,0.1)", borderRadius: "12px", fontSize: 12 }} />
-                    <Line
-                      type="monotone"
-                      dataKey="score"
-                      stroke="var(--color-tertiary)"
-                      strokeWidth={4}
-                      dot={{ r: 6, fill: "var(--color-background)", strokeWidth: 2 }}
-                      activeDot={{ r: 8, fill: "var(--color-tertiary)" }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="glass-card rounded-xl p-8 flex flex-col"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: 0.06 }}
-            >
-              <div className="mb-6 border-b border-outline-variant/10 pb-4">
-                <h3 className="font-headline-lg-mobile text-[24px] text-on-background">SLA Breach Incidents</h3>
-                <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Incidents failing target response metrics</p>
-              </div>
-
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "First Response SLA",
-                    target: "Target limit: 4 hours",
-                    value: "99.1%",
-                    meta: "9 breaches",
-                    metaClass: "text-tertiary",
-                  },
-                  {
-                    title: "Resolution SLA",
-                    target: "Target limit: 24 hours",
-                    value: "97.8%",
-                    meta: "21 breaches",
-                    metaClass: "text-error",
-                  },
-                  {
-                    title: "Escalation Mitigation Time",
-                    target: "Target limit: 1 hour",
-                    value: "100%",
-                    meta: "0 breaches",
-                    metaClass: "text-tertiary",
-                  },
-                ].map((m) => (
-                  <motion.div
-                    key={m.title}
-                    className="flex items-center justify-between p-5 bg-surface-variant/20 border border-outline-variant/10 rounded-xl transition-colors hover:border-outline-variant/30"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25, delay: 0.04 }}
-                  >
-                    <div className="space-y-1">
-                      <p className="font-label-md text-[15px] text-on-surface font-bold">{m.title}</p>
-                      <p className="font-body-sm text-[12px] text-on-surface-variant">{m.target}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-display-sm text-[20px] text-on-surface font-bold">{m.value}</p>
-                      <p className={`font-label-sm text-[11px] ${m.metaClass}`}>{m.meta}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
+          )}
+        </AnimatePresence>
       </div>
     </PageTransition>
   );
 }
-
