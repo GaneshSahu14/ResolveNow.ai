@@ -23,7 +23,7 @@ if (!process.env.BETTER_AUTH_SECRET) {
 }
 
 const app = express();
-app.set("trust proxy", true);
+app.set("trust proxy", 1); // Trust first proxy hop (e.g. Railway edge proxy)
 const port = process.env.PORT || 3000;
 
 app.use(helmet());
@@ -43,6 +43,7 @@ const authLimiter = rateLimit({
   legacyHeaders: false,
   message: { error: "Too many requests, please try again later" },
   skip: () => !isProduction,
+  validate: { trustProxy: false },
 });
 
 // Mount Better Auth handler BEFORE express.json()
