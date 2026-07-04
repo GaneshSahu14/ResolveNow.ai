@@ -23,6 +23,7 @@ if (!process.env.BETTER_AUTH_SECRET) {
 }
 
 const app = express();
+app.set("trust proxy", true);
 const port = process.env.PORT || 3000;
 
 app.use(helmet());
