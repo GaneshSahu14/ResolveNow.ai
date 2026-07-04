@@ -284,7 +284,6 @@ pnpm playwright show-report
 - [ ] Multi-tenant Workspaces
 - [ ] SLA Management
 - [ ] Live Chat Integration
-- [ ] Voice Support
 - [ ] AI Knowledge Generation
 - [ ] RAG-powered Search
 - [ ] Multi-language Support
