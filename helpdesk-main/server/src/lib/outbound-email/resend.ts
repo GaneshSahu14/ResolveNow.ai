@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import type { SendEmailData } from "./types";
 import nodemailer from "nodemailer";
+import dns from "node:dns";
 
 let resendClient: Resend | null = null;
 
@@ -43,16 +44,29 @@ export async function sendEmail(data: SendEmailData): Promise<void> {
     const port = parseInt(process.env.SMTP_PORT || "465", 10);
     const secure = port === 465;
 
+    // Manually resolve to IPv4 address to bypass node:dns IPv6 preference in cloud/container hostings
+    let resolvedHost = host;
+    try {
+      const addresses = await dns.promises.resolve4(host);
+      if (addresses && addresses.length > 0) {
+        resolvedHost = addresses[0]!;
+        console.log(`Resolved SMTP hostname "${host}" to IPv4: ${resolvedHost}`);
+      }
+    } catch (dnsErr) {
+      console.warn(`DNS resolve4 failed for SMTP host "${host}", using hostname directly:`, dnsErr);
+    }
+
     const transporter = nodemailer.createTransport({
-      host,
+      host: resolvedHost,
       port,
       secure,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      // Force IPv4 to bypass IPv6 routing restrictions in cloud/container hostings
-      family: 4,
+      tls: {
+        servername: host, // Crucial: match the original hostname for certificate verification
+      },
     });
 
     try {
