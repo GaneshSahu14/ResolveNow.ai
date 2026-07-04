@@ -229,12 +229,25 @@ export default function AnalyticsPage() {
               {/* Main Volume Chart */}
               <motion.div
                 variants={itemVariants}
-                whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                className="md:col-span-8 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
+                whileHover="hover"
+                className="md:col-span-8 glass-card rounded-xl p-8 min-h-[400px] flex flex-col relative overflow-hidden group cursor-default"
               >
-                <div className="flex justify-between items-center mb-8 border-b border-outline-variant/10 pb-4">
+                <motion.div
+                  variants={{ hover: { opacity: 0.1, scale: 1.1 } }}
+                  initial={{ opacity: 0.03, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl pointer-events-none"
+                />
+
+                <div className="flex justify-between items-center mb-8 border-b border-outline-variant/10 pb-4 relative z-10">
                   <div>
-                    <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Ticket Volume Trends</h3>
+                    <motion.h3 
+                      variants={{ hover: { x: 4 } }} 
+                      transition={{ duration: 0.2 }}
+                      className="font-headline-lg-mobile text-[24px] text-on-background"
+                    >
+                      Ticket Volume Trends
+                    </motion.h3>
                     <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Weekly intake traffic comparison</p>
                   </div>
                   <button className="text-on-surface-variant hover:text-primary cursor-pointer">
@@ -242,7 +255,7 @@ export default function AnalyticsPage() {
                   </button>
                 </div>
 
-                <div className="flex-1 w-full min-h-[250px]">
+                <div className="flex-1 w-full min-h-[250px] relative z-10">
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={volumeData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                       <defs>
@@ -276,6 +289,8 @@ export default function AnalyticsPage() {
                         strokeWidth={3}
                         fillOpacity={1}
                         fill="url(#colorIntake)"
+                        animationDuration={1500}
+                        animationEasing="ease-out"
                       />
                       <Area
                         type="monotone"
@@ -285,6 +300,8 @@ export default function AnalyticsPage() {
                         strokeWidth={3}
                         fillOpacity={1}
                         fill="url(#colorResolved)"
+                        animationDuration={1500}
+                        animationEasing="ease-out"
                       />
                     </AreaChart>
                   </ResponsiveContainer>
@@ -294,14 +311,27 @@ export default function AnalyticsPage() {
               {/* Classification Donut Chart */}
               <motion.div
                 variants={itemVariants}
-                whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                className="md:col-span-4 glass-card rounded-xl p-8 min-h-[400px] flex flex-col"
+                whileHover="hover"
+                className="md:col-span-4 glass-card rounded-xl p-8 min-h-[400px] flex flex-col relative overflow-hidden group cursor-default"
               >
-                <div className="mb-8 border-b border-outline-variant/10 pb-4">
-                  <h3 className="font-headline-lg-mobile text-[24px] text-on-background">Issue Classification</h3>
+                <motion.div
+                  variants={{ hover: { opacity: 0.1, scale: 1.1 } }}
+                  initial={{ opacity: 0.03, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute -left-20 -top-20 w-64 h-64 bg-secondary/20 rounded-full blur-2xl pointer-events-none"
+                />
+
+                <div className="mb-8 border-b border-outline-variant/10 pb-4 relative z-10">
+                  <motion.h3 
+                    variants={{ hover: { x: 4 } }}
+                    transition={{ duration: 0.2 }}
+                    className="font-headline-lg-mobile text-[24px] text-on-background"
+                  >
+                    Issue Classification
+                  </motion.h3>
                   <p className="font-body-md text-[13px] text-on-surface-variant mt-1">Overall tickets split by feature</p>
                 </div>
-                <div className="flex-1 flex flex-col items-center justify-center relative">
+                <div className="flex-1 flex flex-col items-center justify-center relative z-10">
                   <div className="w-full h-[220px] relative">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
@@ -314,6 +344,8 @@ export default function AnalyticsPage() {
                           paddingAngle={5}
                           dataKey="value"
                           stroke="none"
+                          animationDuration={1200}
+                          animationEasing="ease-out"
                         >
                           {categoryShare.map((_entry, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -332,22 +364,30 @@ export default function AnalyticsPage() {
                     </ResponsiveContainer>
 
                     {/* Center Text */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-1">
+                    <motion.div 
+                      variants={{ hover: { scale: 1.08 } }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-1"
+                    >
                       <span className="font-display-sm text-[28px] font-bold text-on-background leading-none">1,335</span>
                       <span className="font-label-sm text-[10px] text-outline uppercase tracking-wider mt-1">Tickets</span>
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Legend */}
-                  <div className="w-full mt-6 space-y-2.5 px-2">
+                  <div className="w-full mt-6 space-y-2.5 px-2 relative z-10">
                     {categoryShare.map((entry, index) => (
-                      <div key={entry.name} className="flex justify-between items-center font-label-md text-[13px]">
+                      <motion.div 
+                        key={entry.name} 
+                        whileHover={{ x: 6, transition: { duration: 0.15 } }}
+                        className="flex justify-between items-center font-label-md text-[13px] cursor-pointer"
+                      >
                         <div className="flex items-center gap-2.5">
                           <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
-                          <span className="text-on-surface">{entry.name}</span>
+                          <span className="text-on-surface hover:text-primary transition-colors">{entry.name}</span>
                         </div>
                         <span className="text-on-surface-variant font-mono">{entry.value}</span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
