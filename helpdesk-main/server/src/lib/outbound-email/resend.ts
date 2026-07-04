@@ -51,6 +51,8 @@ export async function sendEmail(data: SendEmailData): Promise<void> {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      // Force IPv4 to bypass IPv6 routing restrictions in cloud/container hostings
+      family: 4,
     });
 
     try {
