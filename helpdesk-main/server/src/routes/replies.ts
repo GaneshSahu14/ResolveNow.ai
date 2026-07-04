@@ -192,10 +192,13 @@ router.post("/suggest", requireAuth, async (req, res) => {
   if (ticket.category) {
     articles = await prisma.knowledgeBaseArticle.findMany({
       where: { category: ticket.category },
+      take: 3, // Limit to top 3 articles to stay within Groq TPM limits
     });
   }
   if (articles.length === 0) {
-    articles = await prisma.knowledgeBaseArticle.findMany();
+    articles = await prisma.knowledgeBaseArticle.findMany({
+      take: 3, // Limit fallback articles to stay within Groq TPM limits
+    });
   }
 
   const knowledgeBaseText = articles
