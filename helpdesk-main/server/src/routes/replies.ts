@@ -156,7 +156,7 @@ router.post("/polish", requireAuth, async (req, res) => {
       "Preserve the original meaning and keep the response concise. " +
       "Return only the improved text with no preamble or explanation. " +
       `Address the customer by their name: ${customerName}. ` +
-      `End the reply with a sign-off using the agent's name: ${agentName}, and include the link https://codewithmosh.com on its own line after the sign-off.`,
+      `End the reply with a sign-off using the agent's name: ${agentName}.`,
     prompt: data.body,
   });
 
