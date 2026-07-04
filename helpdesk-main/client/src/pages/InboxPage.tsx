@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { type Ticket } from "core/constants/ticket.ts";
@@ -88,10 +88,12 @@ export default function InboxPage() {
     },
   });
 
-  // Automatically select first ticket when loaded
-  if (tickets.length > 0 && selectedTicketId === null) {
-    setSelectedTicketId(tickets[0].id);
-  }
+  // Automatically select first ticket when loaded on desktop
+  useEffect(() => {
+    if (tickets.length > 0 && selectedTicketId === null && window.innerWidth >= 768) {
+      setSelectedTicketId(tickets[0].id);
+    }
+  }, [tickets, selectedTicketId]);
 
   const handleSend = () => {
     if (!replyBody.trim()) return;
@@ -103,7 +105,9 @@ export default function InboxPage() {
   return (
     <PageTransition className="flex-1 flex overflow-hidden h-full">
       {/* Message List Column (Left) */}
-      <div className="w-full md:w-[380px] lg:w-[420px] flex flex-col border-r border-outline-variant/10 shrink-0 bg-surface-container-lowest/50 backdrop-blur-sm h-full">
+      <div className={`w-full md:w-[380px] lg:w-[420px] flex flex-col border-r border-outline-variant/10 shrink-0 bg-surface-container-lowest/50 backdrop-blur-sm h-full ${
+        selectedTicketId !== null ? "hidden md:flex" : "flex"
+      }`}>
         {/* List Header */}
         <div className="p-4 border-b border-outline-variant/10 flex justify-between items-center">
           <div>
@@ -175,7 +179,9 @@ export default function InboxPage() {
       </div>
 
       {/* Conversation Thread (Center) */}
-      <div className="flex-1 flex flex-col min-w-0 bg-surface/40 h-full">
+      <div className={`flex-1 flex flex-col min-w-0 bg-surface/40 h-full ${
+        selectedTicketId === null ? "hidden md:flex" : "flex"
+      }`}>
         {selectedTicketId === null ? (
           <div className="flex-1 flex flex-col items-center justify-center text-on-surface-variant p-8 text-center">
             <span className="material-symbols-outlined text-[48px] mb-3 opacity-30 text-primary">chat</span>
@@ -190,34 +196,46 @@ export default function InboxPage() {
         ) : (
           <>
             {/* Thread Header */}
-            <div className="p-6 border-b border-outline-variant/10 glass-panel sticky top-0 z-10 flex justify-between items-start shrink-0">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <h2 className="font-headline-lg text-[24px] text-on-surface truncate max-w-lg" title={activeTicket.subject}>
-                    {activeTicket.subject}
-                  </h2>
-                  <StatusBadge status={activeTicket.status} />
-                </div>
-                <div className="flex items-center gap-4 font-label-sm text-on-surface-variant">
-                  <div className="flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[16px]">person</span>
-                    {activeTicket.senderName} ({activeTicket.senderEmail})
+            <div className="p-4 md:p-6 border-b border-outline-variant/10 glass-panel sticky top-0 z-10 flex justify-between items-center gap-4 shrink-0">
+              <div className="min-w-0 flex-1 flex items-center gap-3">
+                {/* Back Button (Mobile Only) */}
+                <button
+                  onClick={() => setSelectedTicketId(null)}
+                  className="md:hidden p-2 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all cursor-pointer flex items-center justify-center shrink-0"
+                  aria-label="Back to inbox list"
+                >
+                  <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+                </button>
+                
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-3 mb-1 min-w-0">
+                    <h2 className="font-headline-lg text-[20px] md:text-[24px] text-on-surface truncate min-w-0 flex-1" title={activeTicket.subject}>
+                      {activeTicket.subject}
+                    </h2>
+                    <StatusBadge status={activeTicket.status} />
                   </div>
-                  <div className="flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[16px]">tag</span>
-                    TKT-{activeTicket.id}
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-label-sm text-on-surface-variant min-w-0">
+                    <div className="flex items-center gap-1 min-w-0 truncate">
+                      <span className="material-symbols-outlined text-[16px] shrink-0">person</span>
+                      <span className="truncate text-[12px] md:text-[13px]">{activeTicket.senderName} ({activeTicket.senderEmail})</span>
+                    </div>
+                    <div className="flex items-center gap-1 shrink-0">
+                      <span className="material-symbols-outlined text-[16px]">tag</span>
+                      <span className="text-[12px] md:text-[13px]">TKT-{activeTicket.id}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="flex items-center gap-2 shrink-0">
                 <Link
                   to={`/tickets/${activeTicket.id}`}
-                  className="px-4 py-2 rounded-md border border-outline-variant/30 text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all font-label-md flex items-center gap-2 cursor-pointer"
+                  aria-label="Details"
+                  className="px-3 py-1.5 md:px-4 md:py-2 rounded-md border border-outline-variant/30 text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all font-label-md flex items-center gap-1.5 cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-[18px]">open_in_new</span>
-                  Details
+                  <span className="hidden sm:inline">Details</span>
                 </Link>
-                <button className="px-4 py-2 rounded-md border border-outline-variant/30 text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all font-label-md flex items-center gap-2 cursor-pointer">
+                <button className="p-1.5 md:p-2 rounded-md border border-outline-variant/30 text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all font-label-md flex items-center justify-center cursor-pointer">
                   <span className="material-symbols-outlined text-[18px]">more_horiz</span>
                 </button>
               </div>

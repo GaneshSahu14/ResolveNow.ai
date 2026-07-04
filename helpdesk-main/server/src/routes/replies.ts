@@ -67,8 +67,6 @@ router.post("/", requireAuth, async (req, res) => {
   }
   if (!emailBody.toLowerCase().includes("best regards") && !emailBody.includes("Ganesh Sahu")) {
     emailBody = emailBody + `\n\nBest regards,\nGanesh Sahu`;
-  } else if (emailBody.includes("Code with Mosh Support")) {
-    emailBody = emailBody.replace(/Code with Mosh Support/g, "Ganesh Sahu");
   }
 
   sendEmailJob({
@@ -156,7 +154,7 @@ router.post("/polish", requireAuth, async (req, res) => {
       "Preserve the original meaning and keep the response concise. " +
       "Return only the improved text with no preamble or explanation. " +
       `Address the customer by their name: ${customerName}. ` +
-      `End the reply with a sign-off using the agent's name: ${agentName}.`,
+      `End the reply with a sign-off using the agent's name: ${agentName}, and include the link https://codewithmosh.com on its own line after the sign-off.`,
     prompt: data.body,
   });
 
@@ -190,7 +188,7 @@ router.post("/suggest", requireAuth, async (req, res) => {
     })
     .join("\n\n");
 
-  let articles = [];
+  let articles: any[] = [];
   if (ticket.category) {
     articles = await prisma.knowledgeBaseArticle.findMany({
       where: { category: ticket.category },
@@ -207,7 +205,7 @@ router.post("/suggest", requireAuth, async (req, res) => {
   const { text } = await generateText({
     model: aiModel,
     system:
-      "You are a helpful and professional customer support assistant for Code with Mosh. " +
+      "You are a helpful and professional customer support assistant for ResolveNow. " +
       "Generate a suggested reply for the customer based ONLY on the following knowledge base.\n\n" +
       knowledgeBaseText +
       "\n\n" +

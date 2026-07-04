@@ -3,6 +3,13 @@
 import "dotenv/config";
 import { defineConfig } from "prisma/config";
 
+const dbUrl = process.env["DIRECT_URL"] ?? process.env["DATABASE_URL"];
+
+if (!dbUrl) {
+  console.error("❌ [Prisma Config Error]: Neither DIRECT_URL nor DATABASE_URL environment variable is set.");
+  console.error("👉 Action Required: Please configure the DATABASE_URL (and optionally DIRECT_URL) environment variable in your Railway service settings.");
+}
+
 export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
@@ -12,6 +19,7 @@ export default defineConfig({
   datasource: {
     // DIRECT_URL is required for Neon: the pooler endpoint blocks schema migrations.
     // Use DIRECT_URL (non-pooled) when set, otherwise fall back to DATABASE_URL.
-    url: process.env["DIRECT_URL"] ?? process.env["DATABASE_URL"],
+    url: dbUrl || "postgresql://placeholder:placeholder@localhost:5432/placeholder",
   },
 });
+
