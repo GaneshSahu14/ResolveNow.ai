@@ -205,6 +205,7 @@ router.post("/suggest", requireAuth, async (req, res) => {
   const { text } = await generateText({
     model: aiModel,
     system:
+
       "You are a helpful and professional customer support assistant for ResolveNow. " +
       "Generate a suggested reply for the customer based ONLY on the following knowledge base.\n\n" +
       knowledgeBaseText +

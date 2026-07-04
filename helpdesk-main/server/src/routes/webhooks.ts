@@ -98,10 +98,6 @@ router.post("/inbound-email", requireWebhookSecret, upload.any(), async (req, re
   sendClassifyJob(ticket).catch((error) =>
     console.error(`Failed to enqueue classify job for ticket ${ticket.id}:`, error)
   );
-
-  sendAutoResolveJob(ticket).catch((error) =>
-    console.error(`Failed to enqueue auto-resolve job for ticket ${ticket.id}:`, error)
-  );
 });
 
 export default router;
