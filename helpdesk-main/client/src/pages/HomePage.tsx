@@ -1208,7 +1208,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                      Designed and integrated the machine learning models, automated routing flows, and AI agents. Ganesh leads the cognitive engineering workflows that automate ticket resolution.
+                      Built and integrated AI-powered ticket management features, including automated ticket classification, intelligent response suggestions, email-based ticket creation, and workflow automation, while leading the full-stack development of the platform.
                     </p>
                   </div>
                   
