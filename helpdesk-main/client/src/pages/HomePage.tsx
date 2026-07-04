@@ -1185,7 +1185,7 @@ export default function HomePage() {
                   Get in Touch
                 </h2>
                 <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
-                  Have doubts or queries? Reach out directly — we're happy to help.
+                  Need assistance or have queries? Contact us directly.
                 </p>
               </div>
 
