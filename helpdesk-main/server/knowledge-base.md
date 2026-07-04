@@ -1,9 +1,4 @@
-# Code with Mosh -- Support Knowledge Base
 
-*Last Updated: 2026*
-
-This document contains official support policies and troubleshooting
-guides for Code with Mosh courses.
 
 ------------------------------------------------------------------------
 
